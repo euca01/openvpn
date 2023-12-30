@@ -14,4 +14,4 @@ WORKDIR /etc/openvpn
 EXPOSE 1194 1194/udp
 
 
-RUN ["openvpn"]
+RUN ["openvpn", "--config", "config.conf"]
