@@ -11,8 +11,6 @@ RUN apk add --no-cache bash openvpn tzdata && \
        sysctl -p /etc/sysctl.d/ipv4.conf
 
 
-COPY config/ /etc/openvpn/
-
 WORKDIR /etc/openvpn
 
 EXPOSE 1194 1194/udp
