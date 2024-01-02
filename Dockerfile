@@ -9,10 +9,11 @@ RUN apk add --no-cache bash openvpn tzdata openrc && \
        rc-update add openvpn default && \
        echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.d/ipv4.conf && \
        sysctl -p /etc/sysctl.d/ipv4.conf && \
-       chmod +x /bin/ovpn-start.sh
+       chmod +x /bin/ovpn-start.sh && \
+       mkdir -p /etc/openvpn/config
 
 
-WORKDIR /etc/openvpn
+WORKDIR /etc/openvpn/config
 EXPOSE 1194 1194/udp
 
 CMD ovpn-start.sh

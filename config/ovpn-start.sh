@@ -9,4 +9,4 @@ set -e
 #fi
 #iptables -t nat -A POSTROUTING -j MASQUERADE
 #iptables -A FORWARD -i tun0 -o tun0 -j DROP
-exec openvpn --config config/config.conf
+exec openvpn --config config.conf
