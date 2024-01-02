@@ -7,7 +7,7 @@ table ip nat {
 
 	chain prerouting {
 		type nat hook prerouting priority -100; policy accept;
-        ip daddr 10.8.0.4 iif "tun0" tcp dport 25 dnat to 172.100.0.10
+		ip daddr 10.8.0.4 iif "tun0" tcp dport 25 dnat to 172.100.0.10
 	}
 }
 

@@ -9,4 +9,7 @@ if [ ! -c /dev/net/tun ]; then
 fi
 #iptables -t nat -A POSTROUTING -j MASQUERADE
 #iptables -A FORWARD -i tun0 -o tun0 -j DROP
+
+nft -f /etc/nftables.nft
+
 exec openvpn --config config.conf
