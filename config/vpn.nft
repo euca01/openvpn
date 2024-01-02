@@ -1,0 +1,13 @@
+table ip nat {
+	chain postrouting {
+		type nat hook postrouting priority 100; policy accept;
+		ip oif "tun0" snat to 10.8.0.4
+
+	}
+
+	chain prerouting {
+		type nat hook prerouting priority -100; policy accept;
+                ip iif "tun0" tcp dport 25 dnat to 172.100.0.10
+	}
+}
+
