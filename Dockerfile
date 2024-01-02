@@ -5,7 +5,7 @@ ENV TZ=Europe/Paris
 COPY /config/ovpn-start.sh /bin/ovpn-start.sh
 
 
-RUN apk add --no-cache bash openvpn tzdata openrc nftables && \
+RUN apk add --no-cache bash openvpn tzdata openrc && \
        ln -s /usr/share/zoneinfo/$TZ /etc/localtime && \
        rc-update add openvpn default && \
        echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.d/ipv4.conf && \
@@ -13,7 +13,6 @@ RUN apk add --no-cache bash openvpn tzdata openrc nftables && \
        chmod +x /bin/ovpn-start.sh && \
        mkdir -p /etc/openvpn/config
 
-COPY /config/vpn.nft /etc/nftables.d/vpn.nft
 WORKDIR /etc/openvpn/config
 EXPOSE 1194 1194/udp
 
