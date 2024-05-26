@@ -13,3 +13,4 @@ fi
 #nft -f /etc/nftables.nft
 
 exec openvpn --config config.conf
+
