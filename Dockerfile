@@ -5,7 +5,7 @@ ENV TZ=Europe/Paris
 COPY /config/ovpn-start.sh /bin/ovpn-start.sh
 
 
-RUN apk add --no-cache bash openvpn tzdata openrc iptables busybox-extras iproute2 && \
+RUN apk add --no-cache bash openvpn tzdata openrc iptables busybox-extras iproute2 iproute2-minimal && \
        ln -s /usr/share/zoneinfo/$TZ /etc/localtime && \
        rc-update add openvpn default && \
        chmod +x /bin/ovpn-start.sh && \
